@@ -23,13 +23,13 @@ public class Program {
 			Account account = new Account(number, holder, balance, withdraw);
 			sc.nextLine();
 
-			System.out.print("deseja fazer um saque ou um deposito? ");
+			System.out.print("Do you want to make a withdrawal or a deposit?");
 			String r = sc.next();
-			if (r.equals("deposito")) {
+			if (r.equals("deposit")) {
 				System.out.print("Enter amount for deposit:");
 				Double amount = sc.nextDouble();
 				account.deposit(amount);
-			} else if (r.equals("saque")) {
+			} else if (r.equals("withdraw")) {
 				System.out.print("Enter amount for withdraw:");
 				Double amount = sc.nextDouble();
 				account.withdraw(amount);

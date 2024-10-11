@@ -52,6 +52,7 @@ public class Account {
 	}
 
 	public void deposit(Double amount) {
+		exeptions(amount);
 		balance += amount;
 
 	}
@@ -62,12 +63,17 @@ public class Account {
 	}
 
 	private void exeptions(Double amount) {
+		if (amount < 0 || getBalance() < 0 || getWithdrawLimit() < 0) {
+			throw new DomainExeptions("number negative");
+
+		}
 		if (getBalance() < amount) {
-			throw new DomainExeptions("saque maior que a conta bancaria");
+			throw new DomainExeptions("withdrawal greater than the account");
 		}
 		if (getWithdrawLimit() < amount) {
-			throw new DomainExeptions("saque alto de mais");
+			throw new DomainExeptions("withdrawal too high");
 		}
 
 	}
+
 }
